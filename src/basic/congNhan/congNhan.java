@@ -13,11 +13,25 @@ public class congNhan {
         this.salary = salary;
     }
 
+    private static congNhan[] sortCongNhan (congNhan[] congNhans) {
+        for (int i = 0; i < congNhans.length-1; ++i) {
+            for (int j = i+1; j < congNhans.length; ++j) {
+                if (congNhans[i].salary > congNhans[j].salary) {
+                    congNhan tmp;
+                    tmp = congNhans[i];
+                    congNhans[i] = congNhans[j];
+                    congNhans[j] = tmp;
+                }
+            }
+        }
+        return congNhans;
+    }
     public static void main(String[] args) {
         congNhan[] congNhans = new congNhan[4];
 
         Scanner input = new Scanner(System.in);
 
+        // nhập thông tin công nhân
         for (int i = 0; i<congNhans.length; ++i) {
             String name;
             double salary;
@@ -31,16 +45,7 @@ public class congNhan {
         }
 
         // xắp xếp công nhân theo lương giảm dần
-        for (int i = 0; i < congNhans.length-1; ++i) {
-            for (int j = i+1; j < congNhans.length; ++j) {
-                if (congNhans[i].salary > congNhans[j].salary) {
-                    congNhan tmp;
-                    tmp = congNhans[i];
-                    congNhans[i] = congNhans[j];
-                    congNhans[j] = tmp;
-                }
-            }
-        }
+        congNhans = congNhan.sortCongNhan(congNhans);
         // in ra các công nhân
         for (congNhan a : congNhans) {
             System.out.println(a.name + " ----> " + a.salary);
