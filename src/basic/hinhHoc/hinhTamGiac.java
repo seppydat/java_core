@@ -34,7 +34,7 @@ public class hinhTamGiac extends hinhHoc{
         hinhHoc tamGiac = new hinhTamGiac(4.5, 7.5);
         hinhHoc hcn = new hinhChuNhat(5.5, 6.7);
 
-        System.out.println("Dien tich hinh tam giac: "tamGiac.CalculSurface());
-        System.out.println("Dien tich hinh chu nhat: "hcn.CalculSurface());
+        System.out.println("Dien tich hinh tam giac: " + tamGiac.CalculSurface());
+        System.out.println("Dien tich hinh chu nhat: " + hcn.CalculSurface());
     }
 }
