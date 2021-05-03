@@ -1,13 +1,12 @@
 package basic.school;
 
 public class student extends people{
-
+    public static int rootId = 0;
     public int numberOfStudent;
 
-    public student(String name, int age, int numberOfStudent){
-        super.age = age;
-        super.name = name;
-        this.numberOfStudent = numberOfStudent;
+    public student(String name, int age){
+        super(name, age);
+        this.numberOfStudent = ++rootId;
     }
 
     public student(){}

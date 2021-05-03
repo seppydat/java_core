@@ -17,14 +17,18 @@ public class congNhan {
         for (int i = 0; i < congNhans.length-1; ++i) {
             for (int j = i+1; j < congNhans.length; ++j) {
                 if (congNhans[i].salary > congNhans[j].salary) {
-                    congNhan tmp;
-                    tmp = congNhans[i];
-                    congNhans[i] = congNhans[j];
-                    congNhans[j] = tmp;
+                    swap(congNhans[i], congNhans[j]);
                 }
             }
         }
         return congNhans;
+    }
+
+    private static void swap(congNhan a, congNhan b) {
+        congNhan tmp;
+        tmp = b;
+        b = a;
+        a = tmp;
     }
     public static void main(String[] args) {
         congNhan[] congNhans = new congNhan[4];
@@ -43,10 +47,15 @@ public class congNhan {
 
             congNhans[i] = new congNhan(name, salary);
         }
-
+        // truoc xap xep
+        System.out.println("Cong nhan truoc khi xap xep:");
+        for (congNhan a : congNhans) {
+            System.out.println(a.name + " ----> " + a.salary);
+        }
         // xắp xếp công nhân theo lương giảm dần
-        congNhans = congNhan.sortCongNhan(congNhans);
+        congNhans = sortCongNhan(congNhans);
         // in ra các công nhân
+        System.out.println("cong nhan sau khi xap xep:");
         for (congNhan a : congNhans) {
             System.out.println(a.name + " ----> " + a.salary);
         }

@@ -6,8 +6,10 @@ public class oopClassObject{
     public static void main(String[] args) {
         File dowload = new File("C:\\Users\\Seppy\\Downloads");
 
-        for (String file : dowload.list()) {
-            System.out.println(file);
+        for (File file : dowload.listFiles()) {
+            if (file.getName().contains(".pdf")) {
+                System.out.println(file.getName());
+            }
         }
     }
 }
