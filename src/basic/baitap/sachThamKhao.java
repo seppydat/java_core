@@ -65,8 +65,8 @@ public class sachThamKhao extends book{
     }
 
     @Override
-    public void update() {
-        System.out.println("update 2");
+    public void edit() {
+        System.out.println("Dang bao tri update sach tham khao");
     }
 
     @Override
@@ -74,9 +74,9 @@ public class sachThamKhao extends book{
         int id;
         System.out.println("Nhap id cua sach: ");
         Scanner in = new Scanner(System.in);
-        id = Integer.parseInt(in.nextLine());
+        id = in.nextInt();
 
-        if (!super.destroy(this.nameTable, id)) {
+        if (super.destroy(this.nameTable, id)) {
             System.out.println("Xoa thanh cong");
         }
         else {

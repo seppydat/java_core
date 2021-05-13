@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         int option;
+        Scanner in = new Scanner(System.in);
 
         do {
             System.out.println("====== Menu ======");
@@ -15,8 +16,8 @@ public class Main {
             System.out.println("3 - tap chi");
             System.out.println("4 - out");
             System.out.print("Moi nhap lua chon: ");
-            Scanner in = new Scanner(System.in);
             option = in.nextInt();
+
             switch (option) {
                 case 1: {
                     sachGiaoKhoa sgk = new sachGiaoKhoa();
@@ -43,5 +44,6 @@ public class Main {
                 }
             }
         } while (option != 4);
+        in.close();
     }
 }

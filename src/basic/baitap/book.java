@@ -36,7 +36,7 @@ public abstract class book {
                     break;
                 }
                 case 4:{
-                    this.update();
+                    this.edit();
                     break;
                 }
                 case 5:{
@@ -115,8 +115,41 @@ public abstract class book {
         System.out.println("add");
     }
 
-    public void update() {
+    public void edit() {
         System.out.println("update");
+    }
+
+    public boolean update(String nameTable, String nameCol, double value, int id){
+        try {
+            String sqlUpdate = "UPDATE "+nameTable+" SET `"+nameCol+"` = "+value+" WHERE `id` = "+id;
+            db.runSQL(sqlUpdate);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean update(String nameTable, String nameCol, int value, int id){
+        try {
+            String sqlUpdate = "UPDATE "+nameTable+" SET `"+nameCol+"` = "+value+" WHERE `id` = "+id;
+            db.runSQL(sqlUpdate);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean update(String nameTable, String nameCol, String value, int id){
+        try {
+            String sqlUpdate = "UPDATE "+nameTable+" SET `"+nameCol+"` = '"+value+"' WHERE `id` = "+id;
+            db.runSQL(sqlUpdate);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
     public void delete() {
         System.out.println("delete");
@@ -126,10 +159,10 @@ public abstract class book {
         try{
             String sql = "DELETE FROM "+nameTable+" WHERE `id` = "+id;
             db.runSQL(sql);
-            return false;
+            return true;
         } catch (Exception e){
             System.out.println(e.getMessage());
-            return true;
+            return false;
         }
     }
 }

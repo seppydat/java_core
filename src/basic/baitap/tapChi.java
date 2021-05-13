@@ -52,8 +52,70 @@ public class tapChi extends book{
     }
 
     @Override
-    public void update() {
+    public void edit() {
         System.out.println("update");
+        int option;
+        int id;
+        System.out.print("Nhap id muon update: ");
+        Scanner in = new Scanner(System.in);
+        id = Integer.parseInt(in.nextLine());
+        do {
+            System.out.println("=== update tap chi id = "+id+" ===");
+            System.out.println("1 - update name");
+            System.out.println("2 - update price");
+            System.out.println("3 - update nha san xuat ");
+            System.out.println("4 - back");
+            option = Integer.parseInt(in.nextLine());
+
+            switch (option) {
+                case 1:{
+                    String nameColumn = "name";
+                    String nameNew;
+                    System.out.print("Nhap name new: ");
+                    nameNew = in.nextLine();
+                    if (super.update(this.nameTable, nameColumn, nameNew, id)) {
+                        System.out.println("Update thanh cong");
+                    }
+                    else {
+                        System.out.println("that bai!");
+                    }
+                    break;
+                }
+                case 2:{
+                    String nameColumn = "price";
+                    double priceNew;
+                    System.out.print("Nhap price new: ");
+                    priceNew = Double.parseDouble(in.nextLine());
+                    if (super.update(this.nameTable, nameColumn, priceNew, id)) {
+                        System.out.println("Update thanh cong");
+                    }
+                    else {
+                        System.out.println("that bai!");
+                    }
+                    break;
+                }
+                case 3:{
+                    String nameColumn = "nhaSanXuat";
+                    String nhaSanXuatNew;
+                    System.out.print("Nhap nha san xuat new: ");
+                    nhaSanXuatNew = in.nextLine();
+                    if (super.update(this.nameTable, nameColumn, nhaSanXuatNew, id)) {
+                        System.out.println("Update thanh cong");
+                    }
+                    else {
+                        System.out.println("that bai!");
+                    }
+                    break;
+                }
+                case 4:{
+                    break;
+                }
+                default:{
+                    System.out.println("tam thoi chua co chuc nang nay!");
+                    break;
+                }
+            }
+        } while (option != 4);
     }
 
     @Override
@@ -61,9 +123,9 @@ public class tapChi extends book{
         int id;
         System.out.println("Nhap id cua sach: ");
         Scanner in = new Scanner(System.in);
-        id = Integer.parseInt(in.nextLine());
+        id = in.nextInt();
 
-        if (!super.destroy(this.nameTable, id)) {
+        if (super.destroy(this.nameTable, id)) {
             System.out.println("Xoa thanh cong");
         }
         else {
