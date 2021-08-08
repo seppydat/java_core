@@ -7,7 +7,7 @@ import java.sql.ResultSetMetaData;
 import java.util.Scanner;
 
 public abstract class book {
-    protected final mysqliconn db = new mysqliconn("localhost", "testjava", "root", "");
+    protected final mysqliconn db = new mysqliconn("localhost", "JavaCore", "root", "Dat0921@");
 
     public void showMenu (String category) {
         int option;

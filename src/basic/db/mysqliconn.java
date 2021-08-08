@@ -20,10 +20,10 @@ public class mysqliconn {
     }
 
     public void openConnect() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         // Cấu trúc URL Connection dành cho Oracle
         // Ví dụ: jdbc:mysql://localhost:3306/simplehr
-        String connectionURL = "jdbc:mysql://" + this.hostName + ":3306/" + this.dbName;
+        String connectionURL = "jdbc:mysql://" + this.hostName + ":3306/" + this.dbName +  "?useSSL=false";
 
         this.connectDB = DriverManager.getConnection(connectionURL, this.userName,
                 this.password);
